@@ -8,8 +8,6 @@ on:
       - ".github/**"
       - "app/**"
       - "Dockerfile-parent"
-  schedule:
-    - cron: "0 0 * * *"
 
 jobs:
   build:
