@@ -42,7 +42,7 @@ jobs:
           API_ADDRESS: https://registry-1.docker.io/v2
           PANA_DOC: https://pub.dev/api/documentation/pana
         run: |
-          CURRENT_FLUTTER=$(git ls-remote $GIT_FLUTTER refs/heads/stable | cut -f 1)
+          CURRENT_FLUTTER=$(git ls-remote $GIT_FLUTTER refs/heads/dev | cut -f 1)
           CURRENT_PANA=$(curl -s $PANA_DOC | jq -r '.latestStableVersion')
           API_TOKEN=$(curl -s "https://auth.docker.io/token?scope=repository:$IMAGE_DART:pull&service=registry.docker.io" | jq -r '.token')
           CURRENT_DART=$(curl -s -H "Authorization: Bearer $API_TOKEN" -H "Accept: application/vnd.docker.distribution.manifest.v2+json" "$API_ADDRESS/$IMAGE_DART/manifests/latest" | jq -r '.config.digest')
