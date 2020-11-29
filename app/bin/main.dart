@@ -47,7 +47,7 @@ dynamic main(List<String> args) async {
     // Executing the analysis
     logger.startGroup('Running pana');
     final panaProcessResult = await gaction.exec(
-      'pana',
+      'flutter pub global run pana',
       <String>[
         '--json',
         '--no-warning',
